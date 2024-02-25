@@ -170,6 +170,9 @@ pub fn from_storage<S: Into<Shape>>(
 }
 
 impl Tensor {
+
+    pub use::from_storage;
+
     pub(crate) fn ones_impl<S: Into<Shape>>(
         shape: S,
         dtype: DType,
