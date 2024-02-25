@@ -149,7 +149,7 @@ macro_rules! broadcast_binary_op {
 }
 
 /// Creates a fresh tensor structure based on a storage and a shape, this uses contiguous strides.
-pub fn from_storage<S: Into<Shape>>(
+pub(crate) fn from_storage<S: Into<Shape>>(
     storage: Storage,
     shape: S,
     op: BackpropOp,
@@ -170,9 +170,6 @@ pub fn from_storage<S: Into<Shape>>(
 }
 
 impl Tensor {
-
-    pub use::from_storage;
-
     pub(crate) fn ones_impl<S: Into<Shape>>(
         shape: S,
         dtype: DType,
