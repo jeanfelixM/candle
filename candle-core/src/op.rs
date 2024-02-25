@@ -1014,7 +1014,7 @@ impl BackpropOp {
         BackpropOp(None)
     }
 
-    pub(crate) fn new1(arg: &Tensor, f: impl Fn(Tensor) -> Op) -> Self {
+    pub fn new1(arg: &Tensor, f: impl Fn(Tensor) -> Op) -> Self {
         let op = if arg.track_op() {
             Some(f(arg.clone()))
         } else {
