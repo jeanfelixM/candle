@@ -448,8 +448,9 @@ impl Tensor {
         array: &[D],
         shape: S,
         device: &Device,
+        is_variable: bool,
     ) -> Result<Self> {
-        Self::new_impl(array, shape.into(), device, false)
+        Self::new_impl(array, shape.into(), device, is_variable)
     }
 
     pub(crate) fn same_shape_binary_op(&self, rhs: &Self, op: &'static str) -> Result<&Shape> {
